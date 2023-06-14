@@ -14,6 +14,10 @@ namespace MegaMart.AppDbContext
 
         public DbSet<Product> Product { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<VariationAttribute> VariationAttributes { get; set; }
+        public DbSet<ProductAttribute> ProductAttributes { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
