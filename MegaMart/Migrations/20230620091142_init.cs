@@ -90,20 +90,6 @@ namespace MegaMart.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "VariationAttributes",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
-                    Name = table.Column<string>(type: "longtext", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VariationAttributes", x => x.Id);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -240,10 +226,12 @@ namespace MegaMart.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     ProductName = table.Column<string>(type: "longtext", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
+                    ShortDescription = table.Column<string>(type: "longtext", nullable: false),
                     Image = table.Column<string>(type: "longtext", nullable: false),
-                    Price = table.Column<double>(type: "double", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<double>(type: "double", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: true),
+                    Stock = table.Column<int>(type: "int", nullable: true),
+                    ProductType = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<Guid>(type: "char(36)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
@@ -260,28 +248,44 @@ namespace MegaMart.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ProductAttributes",
+                name: "ProductVariations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
-                    Values = table.Column<string>(type: "longtext", nullable: false),
                     ProductId = table.Column<Guid>(type: "char(36)", nullable: false),
-                    AttributeId = table.Column<Guid>(type: "char(36)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductAttributes", x => x.Id);
+                    table.PrimaryKey("PK_ProductVariations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductAttributes_Product_ProductId",
+                        name: "FK_ProductVariations_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "VariationOptions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    Name = table.Column<string>(type: "longtext", nullable: false),
+                    Option = table.Column<string>(type: "longtext", nullable: false),
+                    VariationAttributeId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    StockQuantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<double>(type: "double", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VariationOptions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductAttributes_VariationAttributes_AttributeId",
-                        column: x => x.AttributeId,
-                        principalTable: "VariationAttributes",
+                        name: "FK_VariationOptions_ProductVariations_VariationAttributeId",
+                        column: x => x.VariationAttributeId,
+                        principalTable: "ProductVariations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -340,14 +344,14 @@ namespace MegaMart.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductAttributes_AttributeId",
-                table: "ProductAttributes",
-                column: "AttributeId");
+                name: "IX_ProductVariations_ProductId",
+                table: "ProductVariations",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductAttributes_ProductId",
-                table: "ProductAttributes",
-                column: "ProductId");
+                name: "IX_VariationOptions_VariationAttributeId",
+                table: "VariationOptions",
+                column: "VariationAttributeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -374,7 +378,7 @@ namespace MegaMart.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "ProductAttributes");
+                name: "VariationOptions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -383,10 +387,10 @@ namespace MegaMart.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "ProductVariations");
 
             migrationBuilder.DropTable(
-                name: "VariationAttributes");
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "Categories");

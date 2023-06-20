@@ -11,7 +11,7 @@ namespace MegaMart.Entity
         [ForeignKey(nameof(ParentCategoryId))]
         public Category? ParentCategory { get; set; }
 
-        public ICollection<Product>? Products { get; set; }
+        public ICollection<Product> Products { get; set; }
 
     }
 }

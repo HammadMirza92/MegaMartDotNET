@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaMart.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230614115136_init")]
+    [Migration("20230620091142_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,17 +101,24 @@ namespace MegaMart.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<double>("Price")
+                    b.Property<double?>("Price")
                         .HasColumnType("double");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("ProductType")
                         .HasColumnType("int");
 
-                    b.Property<int>("Stock")
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("Stock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -121,13 +128,10 @@ namespace MegaMart.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.ProductAttribute", b =>
+            modelBuilder.Entity("MegaMart.Entity.ProductVariations", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("AttributeId")
                         .HasColumnType("char(36)");
 
                     b.Property<bool>("IsDeleted")
@@ -136,20 +140,14 @@ namespace MegaMart.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("char(36)");
 
-                    b.Property<string>("Values")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AttributeId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductAttributes");
+                    b.ToTable("ProductVariations");
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.VariationAttribute", b =>
+            modelBuilder.Entity("MegaMart.Entity.VariationOptions", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,9 +160,24 @@ namespace MegaMart.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Option")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double");
+
+                    b.Property<int>("StockQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("VariationAttributeId")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("VariationAttributes");
+                    b.HasIndex("VariationAttributeId");
+
+                    b.ToTable("VariationOptions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -403,23 +416,26 @@ namespace MegaMart.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.ProductAttribute", b =>
+            modelBuilder.Entity("MegaMart.Entity.ProductVariations", b =>
                 {
-                    b.HasOne("MegaMart.Entity.VariationAttribute", "Attribute")
-                        .WithMany("ProductAttributes")
-                        .HasForeignKey("AttributeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MegaMart.Entity.Product", "Product")
-                        .WithMany("ProductAttributes")
+                        .WithMany("Variations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Attribute");
-
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("MegaMart.Entity.VariationOptions", b =>
+                {
+                    b.HasOne("MegaMart.Entity.ProductVariations", "VariationAttribute")
+                        .WithMany("Options")
+                        .HasForeignKey("VariationAttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VariationAttribute");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -480,12 +496,12 @@ namespace MegaMart.Migrations
 
             modelBuilder.Entity("MegaMart.Entity.Product", b =>
                 {
-                    b.Navigation("ProductAttributes");
+                    b.Navigation("Variations");
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.VariationAttribute", b =>
+            modelBuilder.Entity("MegaMart.Entity.ProductVariations", b =>
                 {
-                    b.Navigation("ProductAttributes");
+                    b.Navigation("Options");
                 });
 
             modelBuilder.Entity("MegaMart.Entity.AppUser", b =>

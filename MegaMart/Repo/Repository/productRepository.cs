@@ -16,7 +16,7 @@ namespace MegaMart.Repo.Repository
         public override async Task<IEnumerable<Product>> GetAll()
         {
             var allProducts = await _context.Product
-                .Include(x=> x.ProductAttributes).ThenInclude(a=> a.Attribute)
+                .Include(x=> x.Variations).ThenInclude(a=> a.Options)
                 .ToListAsync();
 
             return allProducts;

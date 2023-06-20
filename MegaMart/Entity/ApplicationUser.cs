@@ -2,7 +2,7 @@
 
 namespace MegaMart.Entity
 {
-    public class AppUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         public virtual ICollection<Order> Orders { get; set; }
     }
