@@ -66,7 +66,7 @@ namespace MegaMart.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<string>("AppUserId")
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("varchar(255)");
 
                     b.Property<bool>("IsDeleted")
@@ -74,7 +74,7 @@ namespace MegaMart.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Order");
                 });
@@ -380,11 +380,11 @@ namespace MegaMart.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.AppUser", b =>
+            modelBuilder.Entity("MegaMart.Entity.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.HasDiscriminator().HasValue("AppUser");
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("MegaMart.Entity.Category", b =>
@@ -398,9 +398,9 @@ namespace MegaMart.Migrations
 
             modelBuilder.Entity("MegaMart.Entity.Order", b =>
                 {
-                    b.HasOne("MegaMart.Entity.AppUser", null)
+                    b.HasOne("MegaMart.Entity.ApplicationUser", null)
                         .WithMany("Orders")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("MegaMart.Entity.Product", b =>
@@ -502,7 +502,7 @@ namespace MegaMart.Migrations
                     b.Navigation("Options");
                 });
 
-            modelBuilder.Entity("MegaMart.Entity.AppUser", b =>
+            modelBuilder.Entity("MegaMart.Entity.ApplicationUser", b =>
                 {
                     b.Navigation("Orders");
                 });

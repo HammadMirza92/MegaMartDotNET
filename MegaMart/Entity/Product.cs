@@ -18,7 +18,7 @@ namespace MegaMart.Entity
         public Guid CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
-        public ICollection<ProductVariations> Variations { get; set; }
+        public ICollection<ProductVariations>? Variations { get; set; }
 
     }
 }

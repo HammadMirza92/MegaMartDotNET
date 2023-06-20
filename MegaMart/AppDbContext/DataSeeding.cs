@@ -48,7 +48,22 @@ namespace MegaMart.AppDbContext
                         IsDeleted = false,
                     };
                     var addProduct = context.Product.Add(product).Entity;
-                   
+
+                    var simpleproduct = new Product()
+                    {
+                        Id = Guid.Parse("54d70b9f-9a0b-4053-98e8-09b2f185860f"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.oberlo.com/media/1603969900-productphotog-2.jpg?w=1824&fit=max",
+                        Price = 12.23,
+                        Quantity = 0,
+                        Stock = 22,
+                        ProductType = Enums.ProductType.Variation,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct = context.Product.Add(simpleproduct).Entity;
 
                     /************ Variations ***************/
 

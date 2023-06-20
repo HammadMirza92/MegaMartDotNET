@@ -205,15 +205,15 @@ namespace MegaMart.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
-                    AppUserId = table.Column<string>(type: "varchar(255)", nullable: true),
+                    ApplicationUserId = table.Column<string>(type: "varchar(255)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Order", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
+                        name: "FK_Order_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 })
@@ -334,9 +334,9 @@ namespace MegaMart.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_AppUserId",
+                name: "IX_Order_ApplicationUserId",
                 table: "Order",
-                column: "AppUserId");
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",
