@@ -7,29 +7,28 @@ namespace MegaMart.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository productRepository)
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryController(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
+
         }
 
         // GET: api/product
         [HttpGet]
         /*[ResponseCache(Duration = 120)]*/
-        public async Task<ActionResult<Product>> Get()
+        public async Task<ActionResult<Category>> GetAll()
         {
-            var products = await _productRepository.GetAll();
-            if (!products.Any())
+            var category = await _categoryRepository.GetAll();
+            if (!category.Any())
             {
                 return BadRequest("Ooops ! No Job Found");
             }
-            return Ok(products);
-
+            return Ok(category);
         }
-       
-
-
     }
 }

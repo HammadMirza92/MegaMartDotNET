@@ -18,6 +18,8 @@ namespace MegaMart.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -76,6 +78,8 @@ namespace MegaMart.Migrations
                     CategoryName = table.Column<string>(type: "longtext", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
                     ParentCategoryId = table.Column<Guid>(type: "char(36)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -206,6 +210,8 @@ namespace MegaMart.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "varchar(255)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -228,11 +234,19 @@ namespace MegaMart.Migrations
                     Description = table.Column<string>(type: "longtext", nullable: false),
                     ShortDescription = table.Column<string>(type: "longtext", nullable: false),
                     Image = table.Column<string>(type: "longtext", nullable: false),
+                    ProductType = table.Column<int>(type: "int", nullable: false),
+                    Featured = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    OnSale = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    SKU = table.Column<string>(type: "longtext", nullable: true),
                     Price = table.Column<double>(type: "double", nullable: true),
+                    SalePrice = table.Column<double>(type: "double", nullable: true),
+                    UsageCount = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: true),
                     Stock = table.Column<int>(type: "int", nullable: true),
-                    ProductType = table.Column<int>(type: "int", nullable: false),
+                    StockStatus = table.Column<int>(type: "int", nullable: true),
                     CategoryId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -253,6 +267,8 @@ namespace MegaMart.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     ProductId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -275,8 +291,14 @@ namespace MegaMart.Migrations
                     Name = table.Column<string>(type: "longtext", nullable: false),
                     Option = table.Column<string>(type: "longtext", nullable: false),
                     VariationAttributeId = table.Column<Guid>(type: "char(36)", nullable: false),
-                    StockQuantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "double", nullable: false),
+                    SKU = table.Column<string>(type: "longtext", nullable: false),
+                    Price = table.Column<double>(type: "double", nullable: true),
+                    SalePrice = table.Column<double>(type: "double", nullable: true),
+                    Stock = table.Column<int>(type: "int", nullable: true),
+                    StockQuantity = table.Column<int>(type: "int", nullable: true),
+                    StockStatus = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>

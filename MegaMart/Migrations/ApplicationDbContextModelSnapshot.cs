@@ -25,8 +25,14 @@ namespace MegaMart.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -43,12 +49,18 @@ namespace MegaMart.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid?>("ParentCategoryId")
                         .HasColumnType("char(36)");
@@ -69,8 +81,14 @@ namespace MegaMart.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -88,15 +106,27 @@ namespace MegaMart.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("Featured")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("OnSale")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<double?>("Price")
@@ -112,11 +142,23 @@ namespace MegaMart.Migrations
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<string>("SKU")
+                        .HasColumnType("longtext");
+
+                    b.Property<double?>("SalePrice")
+                        .HasColumnType("double");
+
                     b.Property<string>("ShortDescription")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int?>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StockStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsageCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -132,8 +174,14 @@ namespace MegaMart.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("char(36)");
@@ -151,8 +199,14 @@ namespace MegaMart.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -162,10 +216,23 @@ namespace MegaMart.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("Price")
+                    b.Property<double?>("Price")
                         .HasColumnType("double");
 
-                    b.Property<int>("StockQuantity")
+                    b.Property<string>("SKU")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<double?>("SalePrice")
+                        .HasColumnType("double");
+
+                    b.Property<int?>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StockQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockStatus")
                         .HasColumnType("int");
 
                     b.Property<Guid>("VariationAttributeId")

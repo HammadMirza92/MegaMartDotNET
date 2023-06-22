@@ -60,7 +60,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 /* Add Scoped of repositories */
-builder.Services.AddScoped<IProductRepository, productRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 /* Add Cors Policy to allow hit this app from url and allow methods */
 builder.Services.AddCors(opt =>

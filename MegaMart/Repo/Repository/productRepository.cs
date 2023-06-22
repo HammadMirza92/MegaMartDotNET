@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MegaMart.Repo.Repository
 {
-    public class productRepository : BaseRepository<Product>, IProductRepository
+    public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
         private readonly ApplicationDbContext _context;
-        public productRepository(ApplicationDbContext context) : base(context)
+        public ProductRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
