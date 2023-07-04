@@ -26,7 +26,7 @@ namespace MegaMart.Controllers
             var category = await _categoryRepository.GetAll();
             if (!category.Any())
             {
-                return BadRequest("Ooops ! No Job Found");
+                return BadRequest("Ooops ! No Category Found");
             }
             return Ok(category);
         }

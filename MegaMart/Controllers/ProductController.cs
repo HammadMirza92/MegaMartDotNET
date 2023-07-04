@@ -23,12 +23,12 @@ namespace MegaMart.Controllers
             var products = await _productRepository.GetAll();
             if (!products.Any())
             {
-                return BadRequest("Ooops ! No Job Found");
+                return BadRequest("Ooops ! No Product Found");
             }
             return Ok(products);
 
         }
-       
+      
 
 
     }
