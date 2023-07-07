@@ -50,7 +50,7 @@ namespace MegaMart.AppDbContext
                         IsDeleted = false,
                     };
                     var addVariationproduct1 = context.Product.Add(variationproduct1).Entity;
-
+                    context.SaveChanges();
                     var simpleproduct = new Product()
                     {
                         Id = Guid.Parse("54d70b9f-9a0b-4053-98e8-09b2f185860f"),
@@ -71,7 +71,7 @@ namespace MegaMart.AppDbContext
                         IsDeleted = false,
                     };
                     var addsimpleproduct = context.Product.Add(simpleproduct).Entity;
-
+                    context.SaveChanges();
                     var simpleproduct2 = new Product()
                     {
                         Id = Guid.Parse("16d9ba61-1539-477d-8d03-19875632e9fc"),
@@ -91,7 +91,7 @@ namespace MegaMart.AppDbContext
                         IsDeleted = false,
                     };
                     var addsimpleproduct2 = context.Product.Add(simpleproduct2).Entity;
-
+                    context.SaveChanges();
                     var simpleproduct3 = new Product()
                     {
                         Id = Guid.Parse("82196f03-63f9-4888-80c9-5f5022e84b20"),
@@ -112,7 +112,178 @@ namespace MegaMart.AppDbContext
                         IsDeleted = false,
                     };
                     var addsimpleproduct3 = context.Product.Add(simpleproduct3).Entity;
+                    context.SaveChanges();
+                    var simpleproduct4 = new Product()
+                    {
+                        Id = Guid.Parse("7272d40f-2ea8-40e7-bffb-969046653fba"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct4 = context.Product.Add(simpleproduct4).Entity;
+                    context.SaveChanges();
+                    var simpleproduct5 = new Product()
+                    {
+                        Id = Guid.Parse("ba3b8375-51fc-4405-a7e7-fb33599eda96"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct5 = context.Product.Add(simpleproduct5).Entity;
+                    context.SaveChanges();
+                    var simpleproduct6 = new Product()
+                    {
+                        Id = Guid.Parse("7355685b-9538-418b-b9b0-9d06bfb3cc23"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct6 = context.Product.Add(simpleproduct6).Entity;
+                    context.SaveChanges();
 
+                    var simpleproduct7 = new Product()
+                    {
+                        Id = Guid.Parse("64b171d1-af9e-4830-b1a1-31283924658d"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct7 = context.Product.Add(simpleproduct7).Entity;
+                    context.SaveChanges();
+                    var simpleproduct8 = new Product()
+                    {
+                        Id = Guid.Parse("b3d77d4c-8ea0-46f7-90d4-4c295d98253d"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct8 = context.Product.Add(simpleproduct8).Entity;
+                    context.SaveChanges();
+
+                    var simpleproduct9 = new Product()
+                    {
+                        Id = Guid.Parse("5b29b2ba-1ee3-4f8d-b6db-2aa77bd7394f"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct9 = context.Product.Add(simpleproduct9).Entity;
+                    context.SaveChanges();
+                    var simpleproduct10 = new Product()
+                    {
+                        Id = Guid.Parse("ecd81415-edd8-4843-bd9c-c7c550bca204"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct10 = context.Product.Add(simpleproduct10).Entity;
+                    context.SaveChanges();
+                    var simpleproduct11 = new Product()
+                    {
+                        Id = Guid.Parse("ce26d34e-bde6-452f-868f-48d69e2f1644"),
+                        ProductName = "Simple Product",
+                        Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        ShortDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                        Image = "https://www.junglescout.com/wp-content/uploads/2021/01/product-photo-water-bottle-hero.png",
+                        ProductType = Enums.ProductType.Simple,
+                        Featured = true,
+                        OnSale = true,
+                        SKU = "SIMPLETHREE",
+                        Price = 18.13,
+                        SalePrice = 17.44,
+                        Quantity = 0,
+                        Stock = 65,
+                        StockStatus = Enums.StockStatus.InStock,
+                        CategoryId = Guid.Parse("f18a0fd6-cbd0-4cf7-9b1e-0c37b24b7396"),
+                        IsDeleted = false,
+                    };
+                    var addsimpleproduct11 = context.Product.Add(simpleproduct11).Entity;
+                    context.SaveChanges();
+                   
                     /************ Variations ***************/
 
                     var colorVariation = new ProductVariations()
@@ -190,7 +361,8 @@ namespace MegaMart.AppDbContext
                     };
                     var addvariationproduct2 = context.Product.Add(variationproduct2).Entity;
 
-                    var simpleproduct4 = new Product()
+
+                    var simpleproduct12 = new Product()
                     {
                         Id = Guid.Parse("953f099e-2249-4da1-8e5e-38334c62dc4b"),
                         ProductName = "Simple Product 4",
@@ -209,9 +381,9 @@ namespace MegaMart.AppDbContext
                         CategoryId = Guid.Parse("3f4cf508-dbf0-453f-91cd-b76581fb343f"),
                         IsDeleted = false,
                     };
-                    var addsimpleproduct4 = context.Product.Add(simpleproduct4).Entity;
-
-                    var simpleproduct5 = new Product()
+                    var addsimpleproduct12 = context.Product.Add(simpleproduct12).Entity;
+                    context.SaveChanges();
+                    var simpleproduct13 = new Product()
                     {
                         Id = Guid.Parse("2de8c0b6-aafb-4b3f-a447-c9a9e90ff8d0"),
                         ProductName = "Simple Product 5",
@@ -229,9 +401,9 @@ namespace MegaMart.AppDbContext
                         CategoryId = Guid.Parse("3f4cf508-dbf0-453f-91cd-b76581fb343f"),
                         IsDeleted = false,
                     };
-                    var addsimpleproduct5 = context.Product.Add(simpleproduct5).Entity;
-
-                    var simpleproduct6 = new Product()
+                    var addsimpleproduct13 = context.Product.Add(simpleproduct13).Entity;
+                    context.SaveChanges();
+                    var simpleproduct14 = new Product()
                     {
                         Id = Guid.Parse("9ac22038-3134-4fb8-9fd7-a0efd8e6c8fa"),
                         ProductName = "Simple Product 6",
@@ -250,8 +422,8 @@ namespace MegaMart.AppDbContext
                         CategoryId = Guid.Parse("3f4cf508-dbf0-453f-91cd-b76581fb343f"),
                         IsDeleted = false,
                     };
-                    var addsimpleproduct6 = context.Product.Add(simpleproduct6).Entity;
-
+                    var addsimpleproduct14 = context.Product.Add(simpleproduct14).Entity;
+                    context.SaveChanges();
                     /************ Variations ***************/
 
                     var colorVariation1 = new ProductVariations()

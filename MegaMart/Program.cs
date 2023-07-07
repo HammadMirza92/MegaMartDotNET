@@ -28,6 +28,8 @@ builder.Services.AddControllersWithViews()
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 */
+
+
 /* Db Connection For SQL Server */
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -73,7 +75,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 /* Add Cors Policy to allow hit this app from url and allow methods */
 builder.Services.AddCors(opt =>
 {
-    opt.AddPolicy("CorsPolicy", policy => policy.AllowAnyHeader().WithOrigins("http://localhost:4200").AllowAnyMethod());
+    opt.AddPolicy("CorsPolicy", policy => policy.AllowAnyHeader().WithOrigins("http://localhost:4200", "http://localhost:2300").AllowAnyMethod());
 
 });
 
