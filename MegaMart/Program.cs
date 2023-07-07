@@ -22,11 +22,18 @@ builder.Services.AddControllersWithViews()
    .AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-/* Db Connection */
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+/* Db Connection For MySQL */
+/*builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+*/
+/* Db Connection For SQL Server */
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 
 /* Add Identity User */
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
